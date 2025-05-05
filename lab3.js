@@ -57,3 +57,31 @@ let reverseArray = students.map((name) => name.split("").reverse().join(""));
 
 console.log(reverseArray);
 console.log("---------------------------");
+
+let removeCharO = students.filter((name) => !name.toLowerCase().includes("o"));
+
+console.log(removeCharO);
+
+let studentsWithgrades = [
+  ["Ali", [85, 90, 78]],
+  ["Sara", [92, 88, 95]],
+  ["Ahmed", [70, 75, 80]],
+  ["Lana", [60, 65, 58]],
+  ["Omar", [82, 79, 85]],
+  ["Noor", [90, 91, 89]],
+];
+
+let studentsWithAvg = studentsWithgrades.map(([name, grades]) => {
+  let sum = grades.reduce((total, grade) => total + grade, 0);
+
+  let avg = sum / grades.length;
+
+  return { name, average: avg.toFixed(2) };
+});
+
+console.log(studentsWithAvg);
+
+const highAchievers = studentsWithAvg.filter((student) => student.average > 80);
+
+console.log("الطلاب الذين معدلهم أكبر من 80:");
+console.log(highAchievers);
